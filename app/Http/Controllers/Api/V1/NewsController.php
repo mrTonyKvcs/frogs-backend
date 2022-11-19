@@ -13,6 +13,10 @@ class NewsController extends Controller
     {
         $news = News::all();
 
-        return NewsResource::collection($news);
+        return response()->json([
+            "success" => true,
+            "message" => "All News",
+            "data" => NewsResource::collection($news)
+        ]);
     }
 }
