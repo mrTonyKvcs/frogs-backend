@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('v1')->group(function () {
-    Route::get('news', [NewsController::class, 'index'])->middleware('api');
+    Route::get('/news', [NewsController::class, 'index'])->middleware('api');
+    Route::get('/news/{id}', [NewsController::class, 'show'])->middleware('api');
 });
 
 

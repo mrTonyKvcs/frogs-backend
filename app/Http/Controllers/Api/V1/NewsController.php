@@ -19,4 +19,15 @@ class NewsController extends Controller
             "data" => NewsResource::collection($news)
         ]);
     }
+
+    public function show($id)
+    {
+        $news = News::findOrFail($id);
+
+        return response()->json([
+            "success" => true,
+            "message" => "Get News",
+            "data" => new NewsResource($news)
+        ]);
+    }
 }
