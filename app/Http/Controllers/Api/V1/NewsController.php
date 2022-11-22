@@ -20,9 +20,11 @@ class NewsController extends Controller
         ]);
     }
 
-    public function show($id)
+    public function show($slug)
     {
-        $news = News::findOrFail($id);
+        $news = News::query()
+            ->where('slug', $slug)
+            ->firstOrFail();
 
         return response()->json([
             "success" => true,
